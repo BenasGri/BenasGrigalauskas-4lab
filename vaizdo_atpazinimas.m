@@ -3,8 +3,8 @@ clear all
 clc
 %% raidþiø pavyzdþiø nuskaitymas ir poþymiø skaièiavimas
 %% read the image with hand-written characters
-pavadinimas = 'train_data.png';
-pozymiai_tinklo_mokymui = pozymiai_raidems_atpazinti(pavadinimas, 4);
+pavadinimas = 'train_data.jpg';
+pozymiai_tinklo_mokymui = pozymiai_raidems_atpazinti(pavadinimas, 6);
 %% Atpaþintuvo kûrimas
 %% Development of character recognizer
 % poþymiai ið celiø masyvo perkeliami á matricà
@@ -12,7 +12,7 @@ pozymiai_tinklo_mokymui = pozymiai_raidems_atpazinti(pavadinimas, 4);
   P = cell2mat(pozymiai_tinklo_mokymui);
 % sukuriama teisingø atsakymø matrica: 11 raidþiø, 8 eilutës mokymui
 % create the matrices of correct answers for each line (number of matrices = number of symbol lines)
-T = [eye(11), eye(11), eye(11), eye(11)];
+T = [eye(11), eye(11), eye(11), eye(11), eye(11), eye(11)];
 % sukuriamas SBF tinklas duotiems P ir T sàryðiams
 % create an RBF network for classification with 13 neurons, and sigma = 1
   tinklas = newrb(P,T,0,1,13);
@@ -20,7 +20,7 @@ T = [eye(11), eye(11), eye(11), eye(11)];
 %% Tinklo patikra | Test of the network (recognizer)
 % skaièiuojamas tinklo iðëjimas neþinomiems poþymiams
 % estimate output of the network for unknown symbols (row, that were not used during training)
-P2 = P(:,12:22);
+P2 = P(:,12:24);
 Y2 = sim(tinklas, P2);
 % ieðkoma, kuriame iðëjime gauta didþiausia reikðmë
 % find which neural network output gives maximum value
@@ -66,7 +66,7 @@ disp(atsakymas)
 % % figure(7), text(0.1,0.5,atsakymas,'FontSize',38)
 %% þodþio "KADA" poþymiø iðskyrimas 
 %% Extract features of the test image
-pavadinimas = 'test_kada.png';
+pavadinimas = 'test_dega.png';
 pozymiai_patikrai = pozymiai_raidems_atpazinti(pavadinimas, 1);
 
 %% Raidþiø atpaþinimas
@@ -107,9 +107,9 @@ for k = 1:raidziu_sk
         case 9
             atsakymas = [atsakymas, 'I'];
         case 10
-            atsakymas = [atsakymas, 'K'];
-        case 11
             atsakymas = [atsakymas, 'J'];
+        case 11
+            atsakymas = [atsakymas, 'K'];
     end
 end
 % pateikime rezultatà komandiniame lange
@@ -117,7 +117,7 @@ end
 figure(8), text(0.1,0.5,atsakymas,'FontSize',38), axis off
 %% þodþio "FIKCIJA" poþymiø iðskyrimas 
 %% extract features for next/another test image
-pavadinimas = 'test_fikcija.png';
+pavadinimas = 'test_begikai.png';
 pozymiai_patikrai = pozymiai_raidems_atpazinti(pavadinimas, 1);
 
 %% Raidþiø atpaþinimas

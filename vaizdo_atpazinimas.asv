@@ -55,9 +55,9 @@ for k = 1:raidziu_sk
         case 9
             atsakymas = [atsakymas, 'I'];
         case 10
-            atsakymas = [atsakymas, 'J'];
-        case 11
             atsakymas = [atsakymas, 'K'];
+        case 11
+            atsakymas = [atsakymas, 'J'];
     end
 end
 % pateikime rezultatà komandiniame lange
@@ -153,9 +153,9 @@ for k = 1:raidziu_sk
         case 9
             atsakymas = [atsakymas, 'I'];
         case 10
-            atsakymas = [atsakymas, 'J'];
-        case 11
             atsakymas = [atsakymas, 'K'];
+        case 11
+            atsakymas = [atsakymas, 'J'];
     end
 end
 % pateikime rezultatà komandiniame lange

@@ -15,7 +15,7 @@ pozymiai_tinklo_mokymui = pozymiai_raidems_atpazinti(pavadinimas, 6);
 T = [eye(11), eye(11), eye(11), eye(11), eye(11), eye(11)];
 % sukuriamas SBF tinklas duotiems P ir T sàryðiams
 % create an RBF network for classification with 13 neurons, and sigma = 1
-  tinklas = newrb(P,T,0,1,13);
+  tinklas = newrb(P,T,0,1,30);
 
 %% Tinklo patikra | Test of the network (recognizer)
 % skaièiuojamas tinklo iðëjimas neþinomiems poþymiams
